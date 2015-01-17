@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Globalization;
 using Prime31;
 using System.Collections.Generic;
 using System;
@@ -7,6 +8,7 @@ using System;
 public class CreateGameBehaviors : MonoBehaviour {
 	public static List<string> sortedPlayers = new List<string>();
 	public static int playerId=-1;
+	public static DateTime starttimestamp = System.DateTime.MinValue;
 	private GameObject button;
 	// Use this for initialization
 
@@ -88,6 +90,7 @@ public class CreateGameBehaviors : MonoBehaviour {
 		if (param == "done") {
 			Debug.Log ("browser done");
 			updatePlayers();
+			starttimestamp = System.DateTime.Now;
 			sendStart ();
 			Application.LoadLevel("Grid");
 
@@ -105,7 +108,7 @@ public class CreateGameBehaviors : MonoBehaviour {
 
 	}
 	void sendStart (){
-		var theStr = "start game";
+		var theStr = "start game"+","+starttimestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
 		var bytes = System.Text.UTF8Encoding.UTF8.GetBytes( theStr );
 
 		var result = MultiPeerBinding.sendRawMessageToAllPeers( bytes );
@@ -124,8 +127,10 @@ public class CreateGameBehaviors : MonoBehaviour {
 		var theStr = param;
 		//Debug.Log( "received raw message from peer: " + peerId );
 		Debug.Log( "message: " + theStr );
-		if (theStr == "start game") {
+		if (theStr.IndexOf("start game")!=-1) {
+			string[] message = theStr.Split (',');
 			updatePlayers();
+			starttimestamp = DateTime.ParseExact(message[1], "MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
 		}
 		else {
 			string[] message = theStr.Split (',');
@@ -142,7 +147,9 @@ public class CreateGameBehaviors : MonoBehaviour {
 		var theStr = System.Text.UTF8Encoding.UTF8.GetString( bytes );
 		Debug.Log( "received raw message from peer: " + peerId );
 		Debug.Log( "message: " + theStr );
-		if (theStr == "start game") {
+		if (theStr.IndexOf("start game")!=-1) {
+			string[] message = theStr.Split (',');
+			starttimestamp = DateTime.ParseExact(message[1], "MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
 			updatePlayers();
 			Application.LoadLevel("Grid");
 		} else {

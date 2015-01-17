@@ -15,16 +15,19 @@ public class ColorSquareMovement : MonoBehaviour {
 
 	}
 	void SendCoordinates (string coordinates){
-		var theStr = CreateGameBehaviors.playerId+","+square.name+","+timestamp.ToString("MM/dd/yyyy hh:mm:ss.fffff", CultureInfo.InvariantCulture);
+		var theStr = CreateGameBehaviors.playerId+","+square.name+","+timestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
 		var bytes = System.Text.UTF8Encoding.UTF8.GetBytes( theStr );
 
 		var result = MultiPeerBinding.sendMessageToAllPeers( "ColorGridGizmo", "multiPeerMessageReceiver", theStr, true );
-		Debug.Log( "send result: " + result );
+		//Debug.Log( "send result: " + result );
 	}
 	public void UpdateColor (string theStr){
 		string[] message = theStr.Split (',');
-		DateTime newStamp = DateTime.ParseExact (message [3], "MM/dd/yyyy hh:mm:ss.fffff", CultureInfo.InvariantCulture);
+		DateTime newStamp = DateTime.ParseExact (message [3], "MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
+		Debug.Log ("messagerecieved"+timestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture)+" "+newStamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture)+" "+DateTime.Compare (timestamp,newStamp));
+
 		if (DateTime.Compare (timestamp, newStamp) <= 0) {
+			Debug.Log ("replace");
 			state = int.Parse (message[0]);
 			timestamp = newStamp;
 			if(state ==-1){
@@ -33,6 +36,7 @@ public class ColorSquareMovement : MonoBehaviour {
 			else{
 				square.transform.renderer.material.color = squareColor[state];
 			}
+
 		}
 	}
 	// Update is called once per frame
@@ -48,15 +52,20 @@ public class ColorSquareMovement : MonoBehaviour {
 
 				Collider2D c2d = Physics2D.OverlapPoint(v2);
 				if (c2d != null && c2d.gameObject.name==square.name) {
-					state = CreateGameBehaviors.playerId;
-					timestamp = System.DateTime.Now;
-					if(state ==-1){
-						square.transform.renderer.material.color = Color.white;
+					DateTime now1 = System.DateTime.Now;
+					if (DateTime.Compare (now1, ColorGridMessageHandler.endtime) <= 0) {
+						state = CreateGameBehaviors.playerId;
+						timestamp = now1;
+						if(state ==-1){
+							square.transform.renderer.material.color = Color.white;
+						}
+						else{
+							square.transform.renderer.material.color = squareColor[state];
+						}
+						Debug.Log ("self"+square.name+timestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture));
+
+						SendCoordinates(c2d.gameObject.name);
 					}
-					else{
-						square.transform.renderer.material.color = squareColor[state];
-					}
-					SendCoordinates(c2d.gameObject.name);
 				}
 			} else if (currentTouch.phase == TouchPhase.Moved) {
 				//Debug.Log("MOVED");
