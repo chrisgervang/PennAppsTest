@@ -76,12 +76,16 @@ public class Pair : MonoBehaviour {
 
 	void multiPeerMessageReceiver( string param )
 	{
+<<<<<<< HEAD
 		Debug.Log( "received a message: " + param );
+=======
+>>>>>>> FETCH_HEAD
 		var theStr = param;
 		//Debug.Log( "received raw message from peer: " + peerId );
 		Debug.Log( "message: " + theStr );
 		if (theStr == "start game") {
 			updatePlayers();
+<<<<<<< HEAD
 		}
 		else {
 			string[] message = theStr.Split (',');
@@ -89,6 +93,15 @@ public class Pair : MonoBehaviour {
 			Vector2 newPosition = new Vector2 (float.Parse (message [1]), float.Parse (message [2]));
 			GameObject.Find (message[1]+","+message[2]).GetComponent<ColorSquareMovement>().UpdateColor(theStr);
 
+=======
+		} 
+		else {
+			string[] message = theStr.Split (',');
+			
+			Vector2 newPosition = new Vector2 (float.Parse (message [1]), float.Parse (message [2]));
+			GameObject.Find (message[1]+","+message[2]).GetComponent<ColorSquareMovement>().UpdateColor(theStr);
+			
+>>>>>>> FETCH_HEAD
 		}
 	}
 
