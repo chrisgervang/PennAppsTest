@@ -5,10 +5,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System;
 
-
+//This handle the set up and behaviors of the scene as a whole. Includes message reciever.
 public class ColorGridMessageHandler : MonoBehaviour {
-	private GameObject button;
-	public static DateTime endtime =System.DateTime.MaxValue;
+	public static DateTime endtime = System.DateTime.MaxValue; //Init to crazy high time
 	public GameObject timer;
 	// Use this for initialization
 
@@ -23,25 +22,24 @@ public class ColorGridMessageHandler : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
 	}
 
 	#region Message receivers
 
-	void multiPeerMessageReceiver( string param )
-	{
+	void multiPeerMessageReceiver( string param ) {
 		var theStr = param;
-		//Debug.Log( "received raw message from peer: " + peerId );
-		Debug.Log( "message: " + theStr );
-			string[] message = theStr.Split (',');
-			Debug.Log("SHIPPPPPPP");
-			Vector2 newPosition = new Vector2 (float.Parse (message [1]), float.Parse (message [2]));
-			DateTime timestamp = DateTime.ParseExact (message [3], "MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
-			if (DateTime.Compare (timestamp, endtime) <= 0) {
-				GameObject.Find (message [1] + "," + message [2]).GetComponent<ColorSquareMovement> ().UpdateColor (theStr);
-			}
+		string[] message = theStr.Split (',');
+
+		Vector2 newPosition = new Vector2 (float.Parse (message [1]), float.Parse (message [2]));
+
+		DateTime mostRecentIncomingColorChangePacket = DateTime.ParseExact (message [3], "MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
+		//Debug.Log("MessageRecieverTimeStamp"+mostRecentIncomingColorChangePacket.ToString("MM/dd/yyyy HH:mm:ss.fffff"));
+		if (DateTime.Compare (mostRecentIncomingColorChangePacket, endtime) <= 0) {
+			GameObject.Find (message [1] + "," + message [2]).GetComponent<ColorSquareMovement> ().UpdateColor (theStr);
+		}
 
 	}
-
 
 	#endregion
 }

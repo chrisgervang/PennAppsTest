@@ -11,9 +11,9 @@ public class Timer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		state = 0;
-		Debug.Log ("colortime"+ColorGridMessageHandler.endtime);
+		Debug.Log ("Game will end at this time: " + ColorGridMessageHandler.endtime);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log ("colortimeupdate"+ColorGridMessageHandler.endtime+" "+System.DateTime.Now+" "+DateTime.Compare (ColorGridMessageHandler.endtime, System.DateTime.Now));

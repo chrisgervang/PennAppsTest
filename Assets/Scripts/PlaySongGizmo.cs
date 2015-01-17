@@ -11,9 +11,9 @@ public class PlaySongGizmo : MonoBehaviour {
 		CreateGameBehaviors.setResolutionToPortrait();
 		bell = Instantiate(bellPrefab) as GameObject;
 
-		
 
-		bell.name = "Bell"+"1";
+
+		bell.name = "Bell"+"0";
 	}
 
 	// Update is called once per frame
@@ -24,7 +24,7 @@ public class PlaySongGizmo : MonoBehaviour {
 
 			//If player started tapping screen
 			if (currentTouch.phase == TouchPhase.Began) {
-				Debug.Log("BEGAN");
+				//Debug.Log("BEGAN");
 
 				Collider2D c2d = Physics2D.OverlapPoint(finger); // THIS IS A GLOBAL THING.
 				// So we need to dig into it to see if we collided with teh object we want.
@@ -32,11 +32,15 @@ public class PlaySongGizmo : MonoBehaviour {
 				if (c2d != null && c2d.gameObject.name == bell.name) {
 					Debug.Log("Collision with:"+bell.name);
 					//Debug.Log(bell.audio.clip);
-					if(bell.name == "Bell1") {
-						Debug.Log("AUDIO" + audioManager);
+					if(bell.name == "Bell0") {
 						GameObject.Find("AudioManager").GetComponent<AudioManager>().playAudioClip("C");
-						//audioManager.playAudioClip("C");
-					} else if ()
+					} else if (bell.name == "Bell1") {
+						GameObject.Find("AudioManager").GetComponent<AudioManager>().playAudioClip("G");
+					} else if (bell.name == "Bell2") {
+						GameObject.Find("AudioManager").GetComponent<AudioManager>().playAudioClip("E");
+					} else if (bell.name == "Bell3") {
+						GameObject.Find("AudioManager").GetComponent<AudioManager>().playAudioClip("D");
+					}
 				}
 				//If finger is stationary or moving
 			}

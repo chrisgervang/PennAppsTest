@@ -11,8 +11,8 @@ public class AudioManager : MonoBehaviour {
 
 
 	void Start () {
-		Debug.Log("CHECK IT" + audio.clip);
-		Debug.Log(pitches[0]);
+		// Debug.Log("CHECK IT" + audio.clip);
+		// Debug.Log(pitches[0]);
 
 	}
 
