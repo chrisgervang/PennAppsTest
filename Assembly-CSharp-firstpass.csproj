@@ -54,7 +54,11 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="P31RestKit">
+<<<<<<< Updated upstream
  <HintPath>/Users/chrisgervang/code/PennAppsTest/Assets/Plugins/P31RestKit.dll</HintPath>
+=======
+ <HintPath>/Users/ninalu/Documents/PennAppsTest/Assets/Plugins/P31RestKit.dll</HintPath>
+>>>>>>> Stashed changes
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
