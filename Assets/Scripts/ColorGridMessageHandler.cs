@@ -5,10 +5,8 @@ using System.Collections.Generic;
 using System;
 
 
-public class Pair : MonoBehaviour {
+public class ColorGridMessageHandler : MonoBehaviour {
 	private GameObject button;
-	public static List<string> sortedPlayers = new List<string>();
-	public static int playerId=-1;
 	// Use this for initialization
 
 	void Start () {

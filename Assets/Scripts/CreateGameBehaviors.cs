@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using System;
 
 public class CreateGameBehaviors : MonoBehaviour {
-
+	public static List<string> sortedPlayers = new List<string>();
+	public static int playerId=-1;
 	private GameObject button;
 	// Use this for initialization
 
@@ -31,11 +32,11 @@ public class CreateGameBehaviors : MonoBehaviour {
 		var peers = MultiPeerBinding.getConnectedPeers();
 		peers.Add (SystemInfo.deviceName);
 		peers.Sort();
-		Pair.sortedPlayers =peers;
-		Pair.playerId = Pair.sortedPlayers.IndexOf (SystemInfo.deviceName);
+		sortedPlayers =peers;
+		playerId = sortedPlayers.IndexOf (SystemInfo.deviceName);
 		Debug.Log ("the players are:");
-		Pair.sortedPlayers.ForEach(Debug.Log);
-		Debug.Log ("the player is id:" + Pair.playerId);
+		sortedPlayers.ForEach(Debug.Log);
+		Debug.Log ("the player is id:" + playerId);
 
 	}
 	void sendStart (){
@@ -47,27 +48,7 @@ public class CreateGameBehaviors : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if (Input.touchCount == 1) {
-			Touch currentTouch = Input.GetTouch(0);
-			Vector2 v2 = new Vector2(Camera.main.ScreenToWorldPoint(currentTouch.position).x, Camera.main.ScreenToWorldPoint(currentTouch.position).y);
-
-			if (currentTouch.phase == TouchPhase.Began) {
-				Debug.Log("BUTTON BEGIN");
-
-				Collider2D c2d = Physics2D.OverlapPoint(v2);
-				if (c2d != null && c2d.gameObject.name == "PairButton") {
-					button = c2d.gameObject;
-					Debug.Log("COLLIDED WITH: Button: " + button.name);
-					if (c2d != null) {
-
-
-						MultiPeerBinding.showPeerPicker();
-
-					}
-				}
-			}
-
-		}
+		
 	}
 
 	#region Message receivers

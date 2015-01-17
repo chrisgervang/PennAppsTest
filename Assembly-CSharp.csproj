@@ -46,16 +46,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ColorGridMessageHandler.cs" />
      <Compile Include="Assets\Scripts\ColorSquareMovement.cs" />
      <Compile Include="Assets\Scripts\CreateGameBehaviors.cs" />
-     <Compile Include="Assets\Scripts\Pair.cs" />
      <Compile Include="Assets\Scripts\PlayerBehaviors\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerBehaviors\HeroMovement.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="P31RestKit">
- <HintPath>/Users/ninalu/Documents/PennAppsTest/Assets/Plugins/P31RestKit.dll</HintPath>
+ <HintPath>/Users/chrisgervang/code/PennAppsTest/Assets/Plugins/P31RestKit.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
