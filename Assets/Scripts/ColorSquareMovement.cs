@@ -3,6 +3,7 @@ using System.Collections;
 using System.Globalization;
 using System;
 using Prime31;
+
 public class ColorSquareMovement : MonoBehaviour {
 	public Color[] squareColor = {Color.blue, Color.red, Color.green, Color.yellow};
 	public GameObject square;
