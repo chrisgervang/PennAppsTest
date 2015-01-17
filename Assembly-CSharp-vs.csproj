@@ -49,8 +49,11 @@
      <Compile Include="Assets\Scripts\ColorGridMessageHandler.cs" />
      <Compile Include="Assets\Scripts\ColorSquareMovement.cs" />
      <Compile Include="Assets\Scripts\CreateGameBehaviors.cs" />
+     <Compile Include="Assets\Scripts\GameOver.cs" />
+     <Compile Include="Assets\Scripts\Instructions.cs" />
      <Compile Include="Assets\Scripts\PlayerBehaviors\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerBehaviors\HeroMovement.cs" />
+     <Compile Include="Assets\Scripts\Timer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
