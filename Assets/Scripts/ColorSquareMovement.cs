@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Globalization;
 using System;
 using Prime31;
 public class ColorSquareMovement : MonoBehaviour {
@@ -13,7 +14,7 @@ public class ColorSquareMovement : MonoBehaviour {
 		
 	}
 	void SendCoordinates (string coordinates){
-		var theStr = Pair.playerId+","+square.name+","+timestamp.ToString();
+		var theStr = Pair.playerId+","+square.name+","+timestamp.ToString("MM/dd/yyyy hh:mm:ss.fffff", CultureInfo.InvariantCulture);
 		var bytes = System.Text.UTF8Encoding.UTF8.GetBytes( theStr );
 		
 		var result = MultiPeerBinding.sendMessageToAllPeers( "PairButton", "multiPeerMessageReceiver", theStr, true );
@@ -21,8 +22,8 @@ public class ColorSquareMovement : MonoBehaviour {
 	}
 	public void UpdateColor (string theStr){
 		string[] message = theStr.Split (',');
-		DateTime newStamp = DateTime.Parse (message [3]);
-		if (DateTime.Compare (timestamp, newStamp) < 0) {
+		DateTime newStamp = DateTime.ParseExact (message [3], "MM/dd/yyyy hh:mm:ss.fffff", CultureInfo.InvariantCulture);
+		if (DateTime.Compare (timestamp, newStamp) <= 0) {
 			state = int.Parse (message[0]);
 			timestamp = newStamp;
 			if(state ==-1){
