@@ -4,8 +4,8 @@ using Prime31;
 using System.Collections.Generic;
 using System;
 
+public class CreateGameBehaviors : MonoBehaviour {
 
-public class Pair : MonoBehaviour {
 	private GameObject button;
 	private List<string> sortedPlayers = new List<string>();
 	public static int playerId=-1;
@@ -13,7 +13,6 @@ public class Pair : MonoBehaviour {
 
 	void Start () {
 		Debug.Log (SystemInfo.deviceName);
-		MultiPeerBinding.advertiseCurrentDevice( true, "prime31-MyGame" );
 		MultiPeerManager.browserFinishedEvent += browserFinishedEvent;
 		MultiPeerManager.receivedRawDataEvent += multiPeerRawMessageReceiver;
 
@@ -26,6 +25,7 @@ public class Pair : MonoBehaviour {
 			Debug.Log ("browser done");
 			updatePlayers();
 			sendStart ();
+			Application.LoadLevel("Grid");
 
 		}
 	}
@@ -100,8 +100,8 @@ public class Pair : MonoBehaviour {
 		Debug.Log( "message: " + theStr );
 		if (theStr == "start game") {
 			updatePlayers();
-		}
-		else {
+			Application.LoadLevel("Grid");
+		} else {
 			string[] message = theStr.Split (',');
 
 			Vector2 newPosition = new Vector2 (float.Parse (message [1]), float.Parse (message [2]));
@@ -111,4 +111,14 @@ public class Pair : MonoBehaviour {
 	}
 
 	#endregion
+
+	public void HostClicked () {
+		MultiPeerBinding.advertiseCurrentDevice( true, "Hijinks" );
+		MultiPeerBinding.showPeerPicker();
+	}
+
+	public void JoinClicked () {
+		MultiPeerBinding.advertiseCurrentDevice( true, "Hijinks" );
+	}
+
 }
