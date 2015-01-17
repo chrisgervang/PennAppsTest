@@ -7,8 +7,6 @@ using System;
 public class CreateGameBehaviors : MonoBehaviour {
 
 	private GameObject button;
-	private List<string> sortedPlayers = new List<string>();
-	public static int playerId=-1;
 	// Use this for initialization
 
 	void Start () {
@@ -33,11 +31,11 @@ public class CreateGameBehaviors : MonoBehaviour {
 		var peers = MultiPeerBinding.getConnectedPeers();
 		peers.Add (SystemInfo.deviceName);
 		peers.Sort();
-		sortedPlayers =peers;
-		playerId = sortedPlayers.IndexOf (SystemInfo.deviceName);
+		Pair.sortedPlayers =peers;
+		Pair.playerId = Pair.sortedPlayers.IndexOf (SystemInfo.deviceName);
 		Debug.Log ("the players are:");
-		sortedPlayers.ForEach(Debug.Log);
-		Debug.Log ("the player is id:" + playerId);
+		Pair.sortedPlayers.ForEach(Debug.Log);
+		Debug.Log ("the player is id:" + Pair.playerId);
 
 	}
 	void sendStart (){
@@ -113,11 +111,13 @@ public class CreateGameBehaviors : MonoBehaviour {
 	#endregion
 
 	public void HostClicked () {
+		Debug.Log("Clicked Host");
 		MultiPeerBinding.advertiseCurrentDevice( true, "Hijinks" );
 		MultiPeerBinding.showPeerPicker();
 	}
 
 	public void JoinClicked () {
+		Debug.Log("Clicked Join");
 		MultiPeerBinding.advertiseCurrentDevice( true, "Hijinks" );
 	}
 
