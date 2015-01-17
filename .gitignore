@@ -35,3 +35,6 @@ Temp/__BuildPlayer Backupscene
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+*.dwlt
+Library/CurrentLayout.dwlt
+Library/expandedItems
