@@ -75,7 +75,19 @@ public class Pair : MonoBehaviour {
 
 	void multiPeerMessageReceiver( string param )
 	{
-		Debug.Log( "received a message: " + param );
+		var theStr = param;
+		//Debug.Log( "received raw message from peer: " + peerId );
+		Debug.Log( "message: " + theStr );
+		if (theStr == "start game") {
+			updatePlayers();
+		} 
+		else {
+			string[] message = theStr.Split (',');
+			
+			Vector2 newPosition = new Vector2 (float.Parse (message [1]), float.Parse (message [2]));
+			GameObject.Find (message[1]+","+message[2]).GetComponent<ColorSquareMovement>().UpdateColor(theStr);
+			
+		}
 	}
 
 
