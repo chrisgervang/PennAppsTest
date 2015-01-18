@@ -4,11 +4,10 @@ using System.Globalization;
 using System;
 using Prime31;
 using UnityEngine.UI;
-public class Timer : MonoBehaviour {
+public class FlyTimer : MonoBehaviour {
 	public GameObject canvas1;
 	public GameObject gameOver;
 	public int state=0;
-	public GameObject handler;
 	// Use this for initialization
 	void Start () {
 		state = 0;
@@ -18,7 +17,7 @@ public class Timer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log ("colortimeupdate"+ColorGridMessageHandler.endtime+" "+System.DateTime.Now+" "+DateTime.Compare (ColorGridMessageHandler.endtime, System.DateTime.Now));
-		if (DateTime.Compare (ColorGridMessageHandler.endtime, System.DateTime.Now) <= 0) {
+		if (DateTime.Compare (FlySwatterMessageHandler.endtime, System.DateTime.Now) <= 0) {
 			canvas1.GetComponentInChildren<Text>().text = "END";
 			if(state==0){
 				state = -1;
@@ -30,7 +29,7 @@ public class Timer : MonoBehaviour {
 		}
 		else{
 
-			canvas1.GetComponentInChildren<Text>().text = (ColorGridMessageHandler.endtime-System.DateTime.Now).Seconds.ToString();
+			canvas1.GetComponentInChildren<Text>().text = (FlySwatterMessageHandler.endtime-System.DateTime.Now).Seconds.ToString();
 		}
 	}
 }
