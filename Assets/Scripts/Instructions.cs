@@ -17,10 +17,10 @@ public class Instructions : MonoBehaviour {
 			DestroyImmediate (canvas1);
 		}
 		else if(DateTime.Compare (CreateGameBehaviors.starttimestamp.AddSeconds (2), System.DateTime.Now) <= 0) {
-			canvas1.GetComponentInChildren<Text>().text = "Color The Grid n 1";
+			canvas1.GetComponentInChildren<Text>().text = "Color The Grid \n 1";
 		}
 		else if(DateTime.Compare (CreateGameBehaviors.starttimestamp.AddSeconds (1), System.DateTime.Now) <= 0) {
-			canvas1.GetComponentInChildren<Text>().text = "Color The Grid n 2";
+			canvas1.GetComponentInChildren<Text>().text = "Color The Grid \n 2";
 		}
 	}
 }
