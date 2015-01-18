@@ -1,7 +1,9 @@
 DevBuild/
+DevBuildSong/
 DevBuildGrid/
+DevBuildFly/
 Library/assetDatabase3
-
+/Users/chrisgervang/code/PennAppsTest/Assets/Sprites/Meta/powerBarSheet.psd
 Library/guidmapper
 
 Library/InspectorExpandedItems.asset
@@ -38,3 +40,7 @@ sysinfo.txt
 *.dwlt
 Library/CurrentLayout.dwlt
 Library/expandedItems
+
+Assets/Sprites/Meta/powerBarSheet.psd
+
+Assets/Sprites/Meta/powerBarSheet.psd.meta

@@ -1,7 +1,13 @@
 fileFormatVersion: 2
 guid: 77b399eb5f5ce41508fa346b70f727c6
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: cannonExplosionSheet_0
+    21300002: cannonExplosionSheet_1
+    21300004: cannonExplosionSheet_2
+    21300006: cannonExplosionSheet_3
+    21300008: cannonExplosionSheet_4
+    21300010: cannonExplosionSheet_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -25,13 +31,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +48,66 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: cannonExplosionSheet_0
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 1363
+        width: 123
+        height: 107
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cannonExplosionSheet_1
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 1340
+        width: 169
+        height: 151
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cannonExplosionSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 1313
+        width: 342
+        height: 227
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cannonExplosionSheet_3
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 1251
+        width: 493
+        height: 354
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cannonExplosionSheet_4
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 290
+        width: 880
+        height: 694
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cannonExplosionSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 53
+        width: 1219
+        height: 1089
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

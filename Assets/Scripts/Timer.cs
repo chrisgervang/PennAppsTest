@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour {
 	public GameObject canvas1;
 	public GameObject gameOver;
 	public int state=0;
+	public GameObject handler;
 	// Use this for initialization
 	void Start () {
 		state = 0;

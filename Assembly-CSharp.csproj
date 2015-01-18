@@ -46,27 +46,30 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AudioManager.cs" />
      <Compile Include="Assets\Scripts\BellBehaviors.cs" />
      <Compile Include="Assets\Scripts\ColorGridMessageHandler.cs" />
      <Compile Include="Assets\Scripts\ColorSquareMovement.cs" />
      <Compile Include="Assets\Scripts\CreateGameBehaviors.cs" />
+     <Compile Include="Assets\Scripts\FlyGameOver.cs" />
+     <Compile Include="Assets\Scripts\FlyInstructions.cs" />
+     <Compile Include="Assets\Scripts\FlyMovement.cs" />
+     <Compile Include="Assets\Scripts\FlySwatterMessageHandler.cs" />
+     <Compile Include="Assets\Scripts\FlyTimer.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
      <Compile Include="Assets\Scripts\Instructions.cs" />
+     <Compile Include="Assets\Scripts\MetaGameGizmo.cs" />
      <Compile Include="Assets\Scripts\PlaySongGizmo.cs" />
      <Compile Include="Assets\Scripts\PlayerBehaviors\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerBehaviors\HeroMovement.cs" />
      <Compile Include="Assets\Scripts\ShakeAnt.cs" />
+     <Compile Include="Assets\Scripts\SwatterMovement.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
+     <Compile Include="Assets\Scripts\audio\AudioManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="P31RestKit">
-<<<<<<< HEAD
  <HintPath>/Users/chrisgervang/code/PennAppsTest/Assets/Plugins/P31RestKit.dll</HintPath>
-=======
- <HintPath>/Users/ninalu/Documents/PennAppsTest/Assets/Plugins/P31RestKit.dll</HintPath>
->>>>>>> FETCH_HEAD
  </Reference>
   </ItemGroup>
   <ItemGroup>

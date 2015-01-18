@@ -24,9 +24,31 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 <<<<<<< HEAD
+																																				GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																											GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> FETCH_HEAD
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+																										GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																											GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> FETCH_HEAD
+=======
+																																GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> Stashed changes
+>>>>>>> FETCH_HEAD
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
 																											GlobalSection(MonoDevelopProperties) = preSolution
 =======
 																												GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> FETCH_HEAD
+=======
+																																	GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> Stashed changes
 >>>>>>> FETCH_HEAD
 =======
 <<<<<<< HEAD

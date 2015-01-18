@@ -119,9 +119,9 @@ public class PlaySongGizmo : MonoBehaviour {
 				playSongScore += 1;
 				Debug.Log("You got a point!"+ musicScore.Length);
 				progressPosition += progressStep;
-
+				
 				//Was trying to smoothen out ProgressBar movement...
-				GameObject.Find("ProgressBarSong").transform.position = Vector3.Lerp(new Vector3(0,tempPosition,0), new Vector3(0,progressPosition,0), Time.deltaTime);
+				GameObject.Find("ProgressBarSong").transform.position = Vector3.Lerp(new Vector3(0,tempPosition,0), new Vector3(0,progressPosition,0), 0.5f);
 				//Debug.Log(GameObject.Find("ProgressBarSong").transform.position);
 			} else {
 				Debug.Log("Ouch, start over");

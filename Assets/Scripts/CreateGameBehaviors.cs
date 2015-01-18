@@ -43,7 +43,7 @@ public class CreateGameBehaviors : MonoBehaviour {
 			updatePlayers();
 			starttimestamp = System.DateTime.Now;
 			sendStart ();
-			Application.LoadLevel("PlayMary"); /////Load level
+			Application.LoadLevel("Grid"); /////Load level
 
 		}
 	}
@@ -51,7 +51,7 @@ public class CreateGameBehaviors : MonoBehaviour {
 		var peers = MultiPeerBinding.getConnectedPeers();
 		peers.Add (SystemInfo.deviceName);
 		peers.Sort();
-		sortedPlayers =peers;
+		sortedPlayers = peers;
 		playerId = sortedPlayers.IndexOf (SystemInfo.deviceName);
 		Debug.Log ("the players are:");
 		sortedPlayers.ForEach(Debug.Log);
@@ -99,7 +99,7 @@ public class CreateGameBehaviors : MonoBehaviour {
 			string[] message = theStr.Split (',');
 			starttimestamp = DateTime.ParseExact(message[1], "MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
 			updatePlayers();
-			Application.LoadLevel("PlayMary");
+			Application.LoadLevel("Grid");
 		} else {
 			string[] message = theStr.Split (',');
 
