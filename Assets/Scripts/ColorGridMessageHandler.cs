@@ -15,9 +15,7 @@ public class ColorGridMessageHandler : MonoBehaviour {
 		endtime = CreateGameBehaviors.starttimestamp.AddSeconds (63);
 		Debug.Log (endtime);
 
-		GameObject newTimer = Instantiate (timer) as GameObject;
-		newTimer.GetComponent<Canvas> ().worldCamera = Camera.main;
-		newTimer.GetComponent<Timer> ().canvas1 = newTimer;
+
 	}
 
 	// Update is called once per frame

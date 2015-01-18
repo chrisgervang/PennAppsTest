@@ -6,10 +6,10 @@ using Prime31;
 
 public class ColorSquareMovement : MonoBehaviour {
 	//PUBLICS
-	public Color[] squareColor = {Color.blue, Color.red, Color.green, Color.yellow};
+	public Color[] squareColor = {Color.blue, Color.red, Color.green, Color.yellow, Color.magenta, Color.cyan};
 	public GameObject square;
 	//Privates
-	private int playerId = -1; //-1 when the player is touching the screen, or when the square hasn't be touched by a player yet.
+	public int playerId = -1; //-1 when the player is touching the screen, or when the square hasn't be touched by a player yet.
 	private DateTime LocalSquareLastChangedTimestamp = System.DateTime.MinValue; //crazy low time so nothing is below it.
 
 	// Use this for initialization
@@ -60,7 +60,7 @@ public class ColorSquareMovement : MonoBehaviour {
 					DateTime now1 = System.DateTime.Now; //Save time at collision. Looks like:
 
 					//If now1 is earlier than the set end time of the current game.
-					if (DateTime.Compare (now1, ColorGridMessageHandler.endtime) <= 0) {
+					if (DateTime.Compare (now1, ColorGridMessageHandler.endtime) <= 0 ) {
 						playerId = CreateGameBehaviors.playerId;
 						LocalSquareLastChangedTimestamp = now1;
 
@@ -68,7 +68,7 @@ public class ColorSquareMovement : MonoBehaviour {
 						if(playerId ==-1){
 							square.transform.renderer.material.color = Color.white;
 						} else {
-							square.transform.renderer.material.color = squareColor[playerId];
+							square.transform.renderer.material.color = squareColor[CreateGameBehaviors.playerId];
 						}
 
 						Debug.Log ("ColorSquare: "+square.name+ " Time: "+LocalSquareLastChangedTimestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture));
@@ -83,7 +83,6 @@ public class ColorSquareMovement : MonoBehaviour {
 
 			} else if (currentTouch.phase == TouchPhase.Ended) {
 				//Debug.Log("ENDED");
-				playerId = -1;
 			}
 
 		}
