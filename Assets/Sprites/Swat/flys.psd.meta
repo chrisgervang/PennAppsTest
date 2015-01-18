@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 5e84fc677d1e047d987d812c77839aa8
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: flys_0
+    21300002: flys_1
+    21300004: flys_2
+    21300006: flys_3
+    21300008: flys_4
+    21300010: flys_5
+    21300012: flys_6
+    21300014: flys_7
+    21300016: flys_8
+    21300018: flys_9
+    21300020: flys_10
+    21300022: flys_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: flys_0
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1369
+        width: 260
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flys_1
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 1291
+        width: 174
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flys_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 972
+        width: 271
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flys_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 913
+        width: 243
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flys_4
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 902
+        width: 246
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flys_5
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 637
+        width: 264
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flys_6
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 717
+        width: 219
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flys_7
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 518
+        width: 265
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flys_8
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 443
+        width: 248
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flys_9
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 234
+        width: 216
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flys_10
+      rect:
+        serializedVersion: 2
+        x: 1403
+        y: 208
+        width: 250
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flys_11
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 81
+        width: 243
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

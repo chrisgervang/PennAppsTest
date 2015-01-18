@@ -1,0 +1,191 @@
+fileFormatVersion: 2
+guid: 08394fb674c6d46d290b7323c52bb614
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: deadFlys_0
+    21300002: deadFlys_1
+    21300004: deadFlys_2
+    21300006: deadFlys_3
+    21300008: deadFlys_4
+    21300010: deadFlys_5
+    21300012: deadFlys_6
+    21300014: deadFlys_7
+    21300016: deadFlys_8
+    21300018: deadFlys_9
+    21300020: deadFlys_10
+    21300022: 
+    21300024: deadFlys_12
+    21300026: JUNK
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: deadFlys_0
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 860
+        width: 314
+        height: 287
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: deadFlys_1
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 1135
+        width: 246
+        height: 232
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: deadFlys_2
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 936
+        width: 412
+        height: 259
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: deadFlys_3
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 884
+        width: 231
+        height: 239
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: deadFlys_4
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 653
+        width: 353
+        height: 245
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: deadFlys_5
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 576
+        width: 183
+        height: 169
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: deadFlys_6
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 548
+        width: 127
+        height: 163
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: deadFlys_7
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 291
+        width: 248
+        height: 244
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: deadFlys_8
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 189
+        width: 334
+        height: 334
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: deadFlys_9
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 259
+        width: 138
+        height: 132
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: deadFlys_10
+      rect:
+        serializedVersion: 2
+        x: 2106
+        y: 165
+        width: 308
+        height: 312
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: deadFlys_12
+      rect:
+        serializedVersion: 2
+        x: 1847
+        y: 251
+        width: 134
+        height: 107
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

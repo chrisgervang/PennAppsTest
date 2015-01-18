@@ -43,11 +43,11 @@ public class CreateGameBehaviors : MonoBehaviour {
 			updatePlayers();
 			starttimestamp = System.DateTime.Now;
 			sendStart ();
-			Application.LoadLevel("Grid"); /////Load level
+			Application.LoadLevel("PlayMary"); /////Load level
 
 		}
 	}
-	void updatePlayers(){
+	public static void updatePlayers(){
 		var peers = MultiPeerBinding.getConnectedPeers();
 		peers.Add (SystemInfo.deviceName);
 		peers.Sort();
@@ -99,7 +99,7 @@ public class CreateGameBehaviors : MonoBehaviour {
 			string[] message = theStr.Split (',');
 			starttimestamp = DateTime.ParseExact(message[1], "MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
 			updatePlayers();
-			Application.LoadLevel("Grid");
+			Application.LoadLevel("PlayMary");
 		} else {
 			string[] message = theStr.Split (',');
 
@@ -127,7 +127,7 @@ public class CreateGameBehaviors : MonoBehaviour {
 			Screen.SetResolution(1024, 768, true);
 			Screen.orientation = ScreenOrientation.LandscapeLeft;
 			Debug.Log("Setting Resolution to 1024,768");
-		} else if( iPhoneSettings.generation == iPhoneGeneration.iPhone5 ) {
+		} else if( iPhoneSettings.generation == iPhoneGeneration.iPhone5 || iPhoneSettings.generation == iPhoneGeneration.iPhone5S || iPhoneSettings.generation == iPhoneGeneration.iPhone5C ) {
 
 			Screen.SetResolution(1136, 640, true);
 			Screen.orientation = ScreenOrientation.LandscapeLeft;
@@ -140,6 +140,7 @@ public class CreateGameBehaviors : MonoBehaviour {
 		}  else {
 			//Unknown device or are you in the editor?
 			Debug.Log("AutoResolution: Unknown device or are you in the editor?");
+			CreateGameBehaviors.playerId = 0;
 		}
 
 	}
@@ -159,7 +160,7 @@ public class CreateGameBehaviors : MonoBehaviour {
 			Screen.SetResolution(768,1024, true);
 			Screen.orientation = ScreenOrientation.Portrait;
 			Debug.Log("Setting Resolution to 1024,768");
-		} else if( iPhoneSettings.generation == iPhoneGeneration.iPhone5 ) {
+		} else if( iPhoneSettings.generation == iPhoneGeneration.iPhone5 || iPhoneSettings.generation == iPhoneGeneration.iPhone5S || iPhoneSettings.generation == iPhoneGeneration.iPhone5C ) {
 
 			Screen.SetResolution(640,1136, true);
 			Screen.orientation = ScreenOrientation.Portrait;
@@ -172,6 +173,7 @@ public class CreateGameBehaviors : MonoBehaviour {
 		}  else {
 			//Unknown device or are you in the editor?
 			Debug.Log("AutoResolution: Unknown device or are you in the editor?");
+			CreateGameBehaviors.playerId = 2;
 		}
 
 	}
