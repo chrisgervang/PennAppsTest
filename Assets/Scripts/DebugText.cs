@@ -9,6 +9,7 @@ public class DebugText : MonoBehaviour {
 	public Dictionary<string, GameObject> squares = new Dictionary<string, GameObject>();
 	public static string debugMostRecentSent = "-1";
 	public static string debugMostRecentIncoming = "-1";
+	public static string debugTimespan = "-1";
 	public Text debugTextToDisplay;
 	// Use this for initialization
 	void Start () {
@@ -26,13 +27,14 @@ public class DebugText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		string display = "Start time: " + CreateGameBehaviors.starttimestamp.ToString("MM/dd/yyyy HH:mm:ss.fff") +
-		"\nEnd Time: " + ColorGridMessageHandler.endtime.ToString("MM/dd/yyyy HH:mm:ss.fff") +
-		"\n1,1-Local: " + squares["1,1"].GetComponent<ColorSquareMovement>().LocalSquareLastChangedTimestamp.ToString("MM/dd/yyyy HH:mm:ss.fff") +
-		"\n1,1-Inc:     " + squares["1,1"].GetComponent<ColorSquareMovement>().IncomingColorChangePacket.ToString("MM/dd/yyyy HH:mm:ss.fff") +
-		"\nSystem.time: " + System.DateTime.Now +
+		string display = "Start time: " + CreateGameBehaviors.currentGameStartTime.ToString() +
+		"\nEnd Time: " + ColorGridMessageHandler.endtime.ToString() +
+		"\n1,1-Local: " + squares["1,1"].GetComponent<ColorSquareMovement>().LocalSquareLastChangedTimestamp.ToString() +
+		"\n1,1-Inc:     " + squares["1,1"].GetComponent<ColorSquareMovement>().IncomingColorChangePacket.ToString() +
+		"\nSystem.time: " + TimeSpan.FromTicks(System.DateTime.Now.Ticks) +
 		"\nMR sent P: " + debugMostRecentSent +
-		"\nMR inc P:  " + debugMostRecentIncoming;
+		"\nMR inc P:  " + debugMostRecentIncoming +
+		"\nTimespan: " + debugTimespan;
 
 		debugTextToDisplay.text = display;
 

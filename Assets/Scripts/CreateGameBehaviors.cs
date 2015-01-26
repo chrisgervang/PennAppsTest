@@ -8,20 +8,12 @@ using System;
 public class CreateGameBehaviors : MonoBehaviour {
 	public static List<string> sortedPlayers = new List<string>();
 	public static int playerId=-1;
-	public static DateTime starttimestamp = System.DateTime.MinValue;
+
+	public static TimeSpan currentGameStartTime = TimeSpan.Zero;
+
+	public static TimeSpan currentSessionStartTime = TimeSpan.Zero;
+
 	private GameObject button;
-	// Use this for initialization
-
-	void Start () {
-		Debug.Log (SystemInfo.deviceName);
-		MultiPeerManager.browserFinishedEvent += browserFinishedEvent;
-		MultiPeerManager.receivedRawDataEvent += multiPeerRawMessageReceiver;
-		setResolutionToLandscape();
-	}
-	// Update is called once per frame
-	void Update () {
-
-	}
 
 	public void HostClicked () {
 		Debug.Log("Clicked Host");
@@ -34,19 +26,7 @@ public class CreateGameBehaviors : MonoBehaviour {
 		MultiPeerBinding.advertiseCurrentDevice( true, "Hijinks" );
 	}
 
-	//////Bluetooth init functions
-	void browserFinishedEvent( string param )
-	{
-		Debug.Log( "browserFinishedEvent: " + param );
-		if (param == "done") {
-			Debug.Log ("browser done");
-			updatePlayers();
-			starttimestamp = System.DateTime.Now;
-			sendStart ();
-			Application.LoadLevel("Grid"); /////Load level
 
-		}
-	}
 	public static void updatePlayers(){
 		var peers = MultiPeerBinding.getConnectedPeers();
 		peers.Add (SystemInfo.deviceName);
@@ -58,11 +38,41 @@ public class CreateGameBehaviors : MonoBehaviour {
 		Debug.Log ("the player is id:" + playerId);
 
 	}
-	void sendStart (){
-		var theStr = "start game"+","+starttimestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
-		var bytes = System.Text.UTF8Encoding.UTF8.GetBytes( theStr );
 
-		var result = MultiPeerBinding.sendRawMessageToAllPeers( bytes );
+	// Use this for initialization
+	void Start () {
+		Debug.Log (SystemInfo.deviceName);
+		MultiPeerManager.browserFinishedEvent += browserFinishedEvent;
+		//MultiPeerManager.receivedRawDataEvent += multiPeerRawMessageReceiver;
+		setResolutionToLandscape();
+	}
+
+	// Update is called once per frame
+	void Update () {
+
+	}
+
+
+	//////Bluetooth init functions
+	void browserFinishedEvent( string param )
+	{
+		Debug.Log( "browserFinishedEvent: " + param );
+		if (param == "done") {
+			Debug.Log ("browser done");
+			updatePlayers();
+			currentGameStartTime = TimeSpan.FromTicks(System.DateTime.Now.Ticks);
+			currentSessionStartTime = currentGameStartTime;
+			sendStart ();
+			Application.LoadLevel("Grid"); /////Load level
+
+		}
+	}
+
+	void sendStart (){
+		var theStr = "start game"+","+currentGameStartTime.ToString();
+		//var bytes = System.Text.UTF8Encoding.UTF8.GetBytes( theStr ); Removed because a raw message be recieved.
+
+		var result = MultiPeerBinding.sendMessageToAllPeers( "Gizmo", "multiPeerMessageReceiver", theStr, true );
 		Debug.Log( "send result: " + result );
 	}
 	/////////
@@ -75,10 +85,13 @@ public class CreateGameBehaviors : MonoBehaviour {
 		var theStr = param;
 		//Debug.Log( "received raw message from peer: " + peerId );
 		Debug.Log( "message: " + theStr );
-		if (theStr.IndexOf("start game")!=-1) {
+		if (theStr.IndexOf("start game") != -1) {
 			string[] message = theStr.Split (',');
+			//currentGameStartTime = TimeSpan.FromTicks(DateTime.ParseExact(message [1], "d.HH:mm:ss.fffff", CultureInfo.InvariantCulture).Ticks);
+			currentGameStartTime = TimeSpan.Parse(message [1]);
+			currentSessionStartTime = currentGameStartTime;
 			updatePlayers();
-			starttimestamp = DateTime.ParseExact(message[1], "MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
+			Application.LoadLevel("Grid");
 		}
 		else {
 			string[] message = theStr.Split (',');
@@ -89,25 +102,25 @@ public class CreateGameBehaviors : MonoBehaviour {
 		}
 	}
 
-
-	void multiPeerRawMessageReceiver( string peerId, byte[] bytes )
-	{
-		var theStr = System.Text.UTF8Encoding.UTF8.GetString( bytes );
-		Debug.Log( "received raw message from peer: " + peerId );
-		Debug.Log( "message: " + theStr );
-		if (theStr.IndexOf("start game")!=-1) {
-			string[] message = theStr.Split (',');
-			starttimestamp = DateTime.ParseExact(message[1], "MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
-			updatePlayers();
-			Application.LoadLevel("Grid");
-		} else {
-			string[] message = theStr.Split (',');
-
-			Vector2 newPosition = new Vector2 (float.Parse (message [1]), float.Parse (message [2]));
-			GameObject.Find (message[1]+","+message[2]).GetComponent<ColorSquareMovement>().UpdateColor(theStr);
-
-		}
-	}
+	// Not being used for now...
+	// void multiPeerRawMessageReceiver( string peerId, byte[] bytes )
+	// {
+	// 	var theStr = System.Text.UTF8Encoding.UTF8.GetString( bytes );
+	// 	Debug.Log( "received raw message from peer: " + peerId );
+	// 	Debug.Log( "message: " + theStr );
+	// 	if (theStr.IndexOf("start game") != -1) {
+	// 		string[] message = theStr.Split (',');
+	// 		currentGameStartTime = TimeSpan.ParseExact(message[1], "MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
+	// 		updatePlayers();
+	// 		Application.LoadLevel("Grid");
+	// 	} else {
+	// 		string[] message = theStr.Split (',');
+	//
+	// 		Vector2 newPosition = new Vector2 (float.Parse (message [1]), float.Parse (message [2]));
+	// 		GameObject.Find (message[1]+","+message[2]).GetComponent<ColorSquareMovement>().UpdateColor(theStr);
+	//
+	// 	}
+	// }
 
 	#endregion
 
@@ -144,6 +157,7 @@ public class CreateGameBehaviors : MonoBehaviour {
 		}
 
 	}
+
 	public static void setResolutionToPortrait() {
 		if( iPhoneSettings.generation == iPhoneGeneration.iPhone || iPhoneSettings.generation == iPhoneGeneration.iPhone3G ||iPhoneSettings.generation == iPhoneGeneration.iPhone3GS ||iPhoneSettings.generation == iPhoneGeneration.iPodTouch2Gen || iPhoneSettings.generation == iPhoneGeneration.iPodTouch3Gen || iPhoneSettings.generation == iPhoneGeneration.iPodTouch4Gen) {
 			//480*480

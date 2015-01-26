@@ -9,6 +9,9 @@ using System.Linq;
 public class GameOver : MonoBehaviour {
 	public GameObject canvas1;
 	// Use this for initialization
+	//TODO: For consistancy, force PlayerID of 1 (the host) to send out its winning score calulation, and override the other players scores and winner.
+	//This way, there is never an inconsistancy and there is an authoritative phone.
+
 	void Start () {
 		canvas1.GetComponentInChildren<Text>().text = "Game Over";
 		updateWinner ();

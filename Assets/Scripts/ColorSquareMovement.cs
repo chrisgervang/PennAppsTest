@@ -10,33 +10,38 @@ public class ColorSquareMovement : MonoBehaviour {
 	public GameObject square;
 	//Privates
 	public int playerId = -1; //-1 when the player is touching the screen, or when the square hasn't be touched by a player yet.
-	public DateTime LocalSquareLastChangedTimestamp = System.DateTime.MinValue; //crazy low time so nothing is below it.
-	public DateTime IncomingColorChangePacket = System.DateTime.MinValue;
+	public TimeSpan LocalSquareLastChangedTimestamp = TimeSpan.MinValue; //crazy low time so nothing is below it.
+	public TimeSpan IncomingColorChangePacket = TimeSpan.MinValue;
 	// Use this for initialization
 	void Start () {
 
 	}
 
 	void SendCoordinates (string coordinates){
-		var theStr = CreateGameBehaviors.playerId+","+coordinates+","+LocalSquareLastChangedTimestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
+		var theStr = CreateGameBehaviors.playerId+","+coordinates+","+LocalSquareLastChangedTimestamp.ToString();
 		//var bytes = System.Text.UTF8Encoding.UTF8.GetBytes( theStr );
-		Debug.Log("Timestamp String Send Cords: " + LocalSquareLastChangedTimestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff"));
+		Debug.Log("Timestamp String Send Cords: " + LocalSquareLastChangedTimestamp.ToString());
 
 		//DEBUG
-		DebugText.debugMostRecentSent = LocalSquareLastChangedTimestamp.ToString("MM/dd/yyyy HH:mm:ss.fff");
+		DebugText.debugMostRecentSent = LocalSquareLastChangedTimestamp.ToString();
 		var result = MultiPeerBinding.sendMessageToAllPeers( "ColorGridGizmo", "multiPeerMessageReceiver", theStr, true );
 		//Debug.Log( "send result: " + result );
 	}
 
 	public void UpdateColor (string theStr){
 		string[] message = theStr.Split (',');
-		IncomingColorChangePacket = DateTime.ParseExact (message [3], "MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
-		Debug.Log ("TimeDates - LocalSquareLastChangedTimestamp: "+LocalSquareLastChangedTimestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture)+" - IncomingColorChangePacket: "+IncomingColorChangePacket.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture)+" - Compare: "+DateTime.Compare (LocalSquareLastChangedTimestamp,IncomingColorChangePacket));
+		//IncomingColorChangePacket = TimeSpan.FromTicks(DateTime.ParseExact(message [3], "d.hh:mm:ss.fffff", CultureInfo.InvariantCulture).Ticks);
+		IncomingColorChangePacket = TimeSpan.Parse(message [3]);
+		Debug.Log ("TimeDates - LocalSquareLastChangedTimestamp: "+LocalSquareLastChangedTimestamp.ToString()+" - IncomingColorChangePacket: "+IncomingColorChangePacket.ToString()+" - Compare: "+TimeSpan.Compare (LocalSquareLastChangedTimestamp,IncomingColorChangePacket));
 		string IncomingSquare = message[2];
 
 		//DEBUG
-		DebugText.debugMostRecentIncoming = IncomingColorChangePacket.ToString("MM/dd/yyyy HH:mm:ss.fff");
-		if (DateTime.Compare (LocalSquareLastChangedTimestamp, IncomingColorChangePacket) <= 0) {
+		DebugText.debugMostRecentIncoming = IncomingColorChangePacket.ToString();
+
+
+		//TimeSpan travelTime =  IncomingColorChangePacket - LocalSquareLastChangedTimestamp;
+		DebugText.debugTimespan = TimeSpan.Compare (LocalSquareLastChangedTimestamp, IncomingColorChangePacket).ToString();
+		if (TimeSpan.Compare (LocalSquareLastChangedTimestamp, IncomingColorChangePacket) <= 0) {
 			Debug.Log ("Incoming square is newer! Changeing square: " + square.name);
 			playerId = int.Parse (message[0]);
 			LocalSquareLastChangedTimestamp = IncomingColorChangePacket;
@@ -66,10 +71,10 @@ public class ColorSquareMovement : MonoBehaviour {
 
 				if (c2d != null && c2d.gameObject.name == square.name) {
 
-					DateTime TimeAtCollision = System.DateTime.Now; //Save time at collision. Looks like:
+					TimeSpan TimeAtCollision = TimeSpan.FromTicks(System.DateTime.Now.Ticks); //Save time at collision. Looks like:
 
 					//If TimeAtCollision is earlier than the set end time of the current game.
-					if (DateTime.Compare (TimeAtCollision, ColorGridMessageHandler.endtime) <= 0 ) {
+					if (TimeSpan.Compare (TimeAtCollision, ColorGridMessageHandler.endtime) <= 0 ) {
 						playerId = CreateGameBehaviors.playerId;
 						LocalSquareLastChangedTimestamp = TimeAtCollision;
 
@@ -80,7 +85,7 @@ public class ColorSquareMovement : MonoBehaviour {
 							square.transform.renderer.material.color = squareColor[CreateGameBehaviors.playerId];
 						}
 
-						Debug.Log ("ColorSquare: "+square.name+ " Time: "+LocalSquareLastChangedTimestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture));
+						Debug.Log ("ColorSquare: "+square.name+ " Time: "+LocalSquareLastChangedTimestamp.ToString());
 
 						SendCoordinates(square.name);
 					}

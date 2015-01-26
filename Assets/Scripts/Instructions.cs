@@ -8,18 +8,18 @@ public class Instructions : MonoBehaviour {
 	public GameObject canvas1;
 	// Use this for initialization
 	void Start () {
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		if (DateTime.Compare (CreateGameBehaviors.starttimestamp.AddSeconds (3), System.DateTime.Now) <= 0) {
+		if (TimeSpan.Compare (CreateGameBehaviors.currentSessionStartTime + new TimeSpan(0,0,3), TimeSpan.FromTicks(System.DateTime.Now.Ticks)) <= 0) {
 			DestroyImmediate (canvas1);
 		}
-		else if(DateTime.Compare (CreateGameBehaviors.starttimestamp.AddSeconds (2), System.DateTime.Now) <= 0) {
+		else if(TimeSpan.Compare (CreateGameBehaviors.currentSessionStartTime + new TimeSpan(0,0,2), TimeSpan.FromTicks(System.DateTime.Now.Ticks)) <= 0) {
 			canvas1.GetComponentInChildren<Text>().text = "Color The Grid \n 1";
 		}
-		else if(DateTime.Compare (CreateGameBehaviors.starttimestamp.AddSeconds (1), System.DateTime.Now) <= 0) {
+		else if(TimeSpan.Compare (CreateGameBehaviors.currentSessionStartTime + new TimeSpan(0,0,1), TimeSpan.FromTicks(System.DateTime.Now.Ticks)) <= 0) {
 			canvas1.GetComponentInChildren<Text>().text = "Color The Grid \n 2";
 		}
 	}

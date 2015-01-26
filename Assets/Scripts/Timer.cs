@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log ("colortimeupdate"+ColorGridMessageHandler.endtime+" "+System.DateTime.Now+" "+DateTime.Compare (ColorGridMessageHandler.endtime, System.DateTime.Now));
-		if (DateTime.Compare (ColorGridMessageHandler.endtime, System.DateTime.Now) <= 0) {
+		if (TimeSpan.Compare (ColorGridMessageHandler.endtime, TimeSpan.FromTicks(System.DateTime.Now.Ticks)) <= 0) {
 			canvas1.GetComponentInChildren<Text>().text = "END";
 			if(state==0){
 				state = -1;
@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour {
 		}
 		else{
 
-			canvas1.GetComponentInChildren<Text>().text = (ColorGridMessageHandler.endtime-System.DateTime.Now).Seconds.ToString();
+			canvas1.GetComponentInChildren<Text>().text = (ColorGridMessageHandler.endtime - TimeSpan.FromTicks(System.DateTime.Now.Ticks)).Seconds.ToString();
 		}
 	}
 }
