@@ -23,51 +23,8 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																													GlobalSection(MonoDevelopProperties) = preSolution
-=======
-																											GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> FETCH_HEAD
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
->>>>>>> FETCH_HEAD
-																										GlobalSection(MonoDevelopProperties) = preSolution
-=======
-																											GlobalSection(MonoDevelopProperties) = preSolution
-<<<<<<< HEAD
->>>>>>> FETCH_HEAD
-=======
-																																GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> Stashed changes
->>>>>>> FETCH_HEAD
-=======
->>>>>>> FETCH_HEAD
-=======
-																																GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> Stashed changes
->>>>>>> FETCH_HEAD
-=======
-																																GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> Stashed changes
-=======
-<<<<<<< HEAD
-																GlobalSection(MonoDevelopProperties) = preSolution
-=======
-															GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> FETCH_HEAD
->>>>>>> FETCH_HEAD
-=======
-																	GlobalSection(MonoDevelopProperties) = preSolution
-=======
-															GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> FETCH_HEAD
->>>>>>> Stashed changes
-=======
-													GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> Stashed changes
+
+	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

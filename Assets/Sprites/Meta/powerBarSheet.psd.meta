@@ -1,0 +1,278 @@
+fileFormatVersion: 2
+guid: e3e1be2874f3c4834ba6ae285c325970
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: powerBarSheet_0
+    21300002: powerBarSheet_1
+    21300004: powerBarSheet_2
+    21300006: powerBarSheet_3
+    21300008: powerBarSheet_4
+    21300010: powerBarSheet_5
+    21300012: powerBarSheet_6
+    21300014: powerBarSheet_7
+    21300016: powerBarSheet_8
+    21300018: powerBarSheet_9
+    21300020: powerBarSheet_10
+    21300022: powerBarSheet_11
+    21300024: powerBarSheet_12
+    21300026: powerBarSheet_13
+    21300028: powerBarSheet_14
+    21300030: powerBarSheet_15
+    21300032: powerBarSheet_16
+    21300034: powerBarSheet_17
+    21300036: powerBarSheet_18
+    21300038: powerBarSheet_19
+    21300040: powerBarSheet_20
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: powerBarSheet_0
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 1650
+        width: 200
+        height: 1172
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_1
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 1654
+        width: 197
+        height: 1168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_2
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 1650
+        width: 196
+        height: 1152
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_3
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 1640
+        width: 200
+        height: 1172
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_4
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 1650
+        width: 200
+        height: 1168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 1655
+        width: 196
+        height: 1140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1921
+        y: 1654
+        width: 204
+        height: 1144
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_7
+      rect:
+        serializedVersion: 2
+        x: 2241
+        y: 1651
+        width: 194
+        height: 1161
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_8
+      rect:
+        serializedVersion: 2
+        x: 2555
+        y: 1650
+        width: 200
+        height: 1162
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_9
+      rect:
+        serializedVersion: 2
+        x: 2869
+        y: 1654
+        width: 197
+        height: 1148
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_10
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 305
+        width: 204
+        height: 1175
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_11
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 309
+        width: 197
+        height: 1174
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_12
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 309
+        width: 203
+        height: 1164
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_13
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 305
+        width: 201
+        height: 1172
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_14
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 309
+        width: 203
+        height: 1174
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_15
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 322
+        width: 200
+        height: 1151
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1945
+        y: 322
+        width: 203
+        height: 1161
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_17
+      rect:
+        serializedVersion: 2
+        x: 2248
+        y: 302
+        width: 200
+        height: 1171
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_18
+      rect:
+        serializedVersion: 2
+        x: 2558
+        y: 302
+        width: 201
+        height: 1168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_19
+      rect:
+        serializedVersion: 2
+        x: 2859
+        y: 295
+        width: 200
+        height: 1175
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerBarSheet_20
+      rect:
+        serializedVersion: 2
+        x: 3173
+        y: 292
+        width: 203
+        height: 1178
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
