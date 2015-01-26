@@ -4,6 +4,8 @@ using System.Globalization;
 using System;
 using Prime31;
 using UnityEngine.UI;
+
+
 public class Timer : MonoBehaviour {
 	public GameObject canvas1;
 	public GameObject gameOver;

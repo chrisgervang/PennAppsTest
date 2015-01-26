@@ -10,28 +10,32 @@ public class ColorSquareMovement : MonoBehaviour {
 	public GameObject square;
 	//Privates
 	public int playerId = -1; //-1 when the player is touching the screen, or when the square hasn't be touched by a player yet.
-	private DateTime LocalSquareLastChangedTimestamp = System.DateTime.MinValue; //crazy low time so nothing is below it.
-
+	public DateTime LocalSquareLastChangedTimestamp = System.DateTime.MinValue; //crazy low time so nothing is below it.
+	public DateTime IncomingColorChangePacket = System.DateTime.MinValue;
 	// Use this for initialization
 	void Start () {
 
 	}
 
 	void SendCoordinates (string coordinates){
-		var theStr = CreateGameBehaviors.playerId+","+square.name+","+LocalSquareLastChangedTimestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
+		var theStr = CreateGameBehaviors.playerId+","+coordinates+","+LocalSquareLastChangedTimestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
 		//var bytes = System.Text.UTF8Encoding.UTF8.GetBytes( theStr );
 		Debug.Log("Timestamp String Send Cords: " + LocalSquareLastChangedTimestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff"));
+
+		//DEBUG
+		DebugText.debugMostRecentSent = LocalSquareLastChangedTimestamp.ToString("MM/dd/yyyy HH:mm:ss.fff");
 		var result = MultiPeerBinding.sendMessageToAllPeers( "ColorGridGizmo", "multiPeerMessageReceiver", theStr, true );
 		//Debug.Log( "send result: " + result );
 	}
 
 	public void UpdateColor (string theStr){
 		string[] message = theStr.Split (',');
-		DateTime IncomingColorChangePacket = DateTime.ParseExact (message [3], "MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
+		IncomingColorChangePacket = DateTime.ParseExact (message [3], "MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture);
 		Debug.Log ("TimeDates - LocalSquareLastChangedTimestamp: "+LocalSquareLastChangedTimestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture)+" - IncomingColorChangePacket: "+IncomingColorChangePacket.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture)+" - Compare: "+DateTime.Compare (LocalSquareLastChangedTimestamp,IncomingColorChangePacket));
+		string IncomingSquare = message[2];
 
-
-
+		//DEBUG
+		DebugText.debugMostRecentIncoming = IncomingColorChangePacket.ToString("MM/dd/yyyy HH:mm:ss.fff");
 		if (DateTime.Compare (LocalSquareLastChangedTimestamp, IncomingColorChangePacket) <= 0) {
 			Debug.Log ("Incoming square is newer! Changeing square: " + square.name);
 			playerId = int.Parse (message[0]);
@@ -42,7 +46,12 @@ public class ColorSquareMovement : MonoBehaviour {
 				square.transform.renderer.material.color = squareColor[playerId];
 			}
 
+		} else {
+			//If the square should not be updated, let the other clients know my most recent square. (They might have a newer one, but thats ok. It will self correct.)
+			SendCoordinates(IncomingSquare);
 		}
+
+
 	}
 	// Update is called once per frame
 	void Update () {
@@ -57,12 +66,12 @@ public class ColorSquareMovement : MonoBehaviour {
 
 				if (c2d != null && c2d.gameObject.name == square.name) {
 
-					DateTime now1 = System.DateTime.Now; //Save time at collision. Looks like:
+					DateTime TimeAtCollision = System.DateTime.Now; //Save time at collision. Looks like:
 
-					//If now1 is earlier than the set end time of the current game.
-					if (DateTime.Compare (now1, ColorGridMessageHandler.endtime) <= 0 ) {
+					//If TimeAtCollision is earlier than the set end time of the current game.
+					if (DateTime.Compare (TimeAtCollision, ColorGridMessageHandler.endtime) <= 0 ) {
 						playerId = CreateGameBehaviors.playerId;
-						LocalSquareLastChangedTimestamp = now1;
+						LocalSquareLastChangedTimestamp = TimeAtCollision;
 
 						//default to white... but this will never happen?
 						if(playerId ==-1){
@@ -73,7 +82,7 @@ public class ColorSquareMovement : MonoBehaviour {
 
 						Debug.Log ("ColorSquare: "+square.name+ " Time: "+LocalSquareLastChangedTimestamp.ToString("MM/dd/yyyy HH:mm:ss.fffff", CultureInfo.InvariantCulture));
 
-						SendCoordinates(c2d.gameObject.name);
+						SendCoordinates(square.name);
 					}
 
 				}

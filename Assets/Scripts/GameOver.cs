@@ -18,10 +18,15 @@ public class GameOver : MonoBehaviour {
 
 		for (int i = 1; i <= 4; i++){
 			for (int j = 1; j<=6; j++){
-				int playId = GameObject.Find (i+","+j).GetComponent<ColorSquareMovement> ().playerId;
-				if(playId !=-1){
-					playerScores[playId]+=1;
+				if(GameObject.Find(i+","+j) != null) {
+					int playId = GameObject.Find (i+","+j).GetComponent<ColorSquareMovement> ().playerId;
+					if(playId !=-1){
+						playerScores[playId]+=1;
+					}
+				} else {
+					Debug.Log(i+","+j+" is null");
 				}
+
 			}
 		}
 		Dictionary<string, int> dict = (CreateGameBehaviors.sortedPlayers).ToDictionary (x => x, x => playerScores [(CreateGameBehaviors.sortedPlayers.IndexOf (x))]);
@@ -36,6 +41,6 @@ public class GameOver : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 }

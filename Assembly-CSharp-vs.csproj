@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\ColorGridMessageHandler.cs" />
      <Compile Include="Assets\Scripts\ColorSquareMovement.cs" />
      <Compile Include="Assets\Scripts\CreateGameBehaviors.cs" />
+     <Compile Include="Assets\Scripts\DebugText.cs" />
      <Compile Include="Assets\Scripts\FlyGameOver.cs" />
      <Compile Include="Assets\Scripts\FlyInstructions.cs" />
      <Compile Include="Assets\Scripts\FlyMovement.cs" />
@@ -62,9 +63,11 @@
      <Compile Include="Assets\Scripts\PlayerBehaviors\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerBehaviors\HeroMovement.cs" />
      <Compile Include="Assets\Scripts\ShakeAnt.cs" />
+     <Compile Include="Assets\Scripts\ShakeAntsGizmo.cs" />
      <Compile Include="Assets\Scripts\SwatterMovement.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\audio\AudioManager.cs" />
+     <None Include="Assets\Prefabs\Outline.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
